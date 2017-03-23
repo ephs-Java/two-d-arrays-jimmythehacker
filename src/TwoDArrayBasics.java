@@ -11,6 +11,8 @@ public class TwoDArrayBasics {
 printArray(nums);
 int rowTotal = sumRow(nums,0);
 System.out.println(rowTotal);
+int [] theSums = rowSums(nums);
+print(theSums);
 	}
 	/*
 	 * given the lower and upper bounds of the random numbers
@@ -43,12 +45,24 @@ System.out.println(rowTotal);
 	/*
 	 * return the sum of a row (r) in a 2D array (nums)
 	 */
-	
-
+	public static int[] rowSums(int[][] nums){
+		int[] sums = new int [nums.length];
+		for(int r = 0; r <nums.length;r++){
+			sums[r] = sumRow(nums, r);
+		}
+		return sums;
+	}
 	
 	/*
 	 * return an array of row sums of a 2D array (nums)
 	 */
+	public static void print(int[]n ){
+		System.out.print("{");
+		for(int r= 0; r<n.length; r++){
+			System.out.println(n[r]);
+			System.out.print("}");
+		}
+	}
 	
 public static int sumRow(int[][]nums,int row){
 	int total = 0; 
